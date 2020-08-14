@@ -18,6 +18,9 @@ export const main = handler(async (event, context) => {
 
   const result = await dynamoDb.query(params);
 
+  // Set a timeout
+  await new Promise(resolve => setTimeout(resolve, 10000));
+
   // Return the matching list of items in response body
   return result.Items;
 });
